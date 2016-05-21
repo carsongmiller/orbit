@@ -14,9 +14,9 @@ Display Variables
 */
 
 #define TIME_INT			.0001			//time interval over which to update object velocities
-#define G_TRAILS			false			//use galaxy trails
+#define G_TRAILS			true			//use galaxy trails
 #define S_TRAILS			false			//use star trails
-#define G_TRAIL_LENGTH		1000			//length of galaxy trails
+#define G_TRAIL_LENGTH		1000000			//length of galaxy trails
 #define S_TRAIL_LENGTH		1000			//length of star trails
 #define GALAXY_SIZE			20				//radius of galaxy center
 #define STAR_SIZE			5				//radius of stars
@@ -35,12 +35,12 @@ Initialization Variables
 */
 
 #define NUM_GALAXY			1				//number of galaxies per star
-#define NUM_STAR			500			//number of stars per galaxy
+#define NUM_STAR			100				//number of stars per galaxy
 #define GALAXY_MASS			10000000		//mass of galaxy center
 #define STAR_MASS			50				//mass of star (larger -> more distant orbit b/c more inertia)
 #define G_C					2				//gravitational constant (not working currently)
-#define STAR_ORBIT_R		100				//star initial position radius from galaxy center
-#define STAR_ORBIT_TOL		50				//tolerance of star initial position
+#define STAR_ORBIT_R		250				//star initial position radius from galaxy center
+#define STAR_ORBIT_TOL		20				//tolerance of star initial position
 #define CIRC_ORBIT			true			//generate stars with more circular orbits
 
 /*
@@ -52,7 +52,7 @@ Gravitaional Interactions
 #define STAR_STAR_INTER		false			//include star->star interactions
 #define GAL_GAL_INTER		false			//include galaxy->galaxy interactions
 #define GAL_STAR_INTER		true			//include galaxy->star interactions
-#define STAR_GAL_INTER		false			//include star->galaxy interactions
+#define STAR_GAL_INTER		true			//include star->galaxy interactions
 
 /*
 ------------------------------

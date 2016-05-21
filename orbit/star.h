@@ -1,5 +1,6 @@
 #ifndef STAR_
 #define STAR_
+#include <vector>
 
 class Galaxy;
 class Universe;

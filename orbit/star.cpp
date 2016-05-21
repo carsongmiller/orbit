@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "star.h"
 #include <cmath>
+#include "util.h"
 
 double randBound(double low, double high, bool neg);
 
@@ -104,12 +105,42 @@ Star::Star(
 		zPos += galZ;
 	*/
 
+	/*
 		xPos = galX + (rand() % STAR_ORBIT_TOL + STAR_ORBIT_R) * pow(-1, rand());
 		yPos = galY + (rand() % STAR_ORBIT_TOL + STAR_ORBIT_R) * pow(-1, rand());
 		zPos = galZ + (rand() % STAR_ORBIT_TOL + STAR_ORBIT_R) * pow(-1, rand());
+	*/
+
+		double theta = deg_to_rad(rand() % 180);
+		double phi = deg_to_rad(rand() % 360);
+		double r = STAR_ORBIT_R + randBound(0, STAR_ORBIT_TOL, true);
+
+		xPos = galX + r*sin(theta)*cos(phi);
+		yPos = galY + r*sin(theta)*sin(phi);
+		zPos = galZ + r*cos(theta);
+
+		
 	
 	if (CIRC_ORBIT)
 	{
+		/*std::vector<double> p(3);
+		p.at(0) = xPos - galX;
+		p.at(1) = yPos - galY;
+		p.at(2) = zPos - galZ;
+
+
+		xSpeed = 1;
+		ySpeed = 1;
+		zSpeed = ((2*p[0]*p[0]) + (2*p[1]*p[1]) + (2*p[2]*p[2]) - 2*p[0] - 2*p[1]) / (2*p[2]);
+		double mag = sqrt(2 + pow(zSpeed, 2));
+		xSpeed /= mag;
+		ySpeed /= mag;
+		zSpeed /= mag;
+		mag = sqrt(G_C * GALAXY_MASS);
+		xSpeed *= mag;
+		ySpeed *= mag;
+		zSpeed *= mag;*/
+
 		ySpeed = randBound(.75, 1, false);
 		zSpeed = randBound(.75, 1, false);
 		xSpeed = (((yPos - galY) * ySpeed) + ((zPos - galZ)*zSpeed)) / (galX - xPos);
@@ -266,14 +297,4 @@ void Star::display(HDC hdc, HWND hWnd)
 			DeleteObject(white);
 		}
 	}
-}
-
-
-
-double randBound(double low, double high, bool neg)
-{
-	if (neg)
-		return ((((double)rand() / RAND_MAX) * (high - low)) + low) * pow(-1, rand());
-	else
-		return (((double)rand() / RAND_MAX) * (high - low)) + low;
 }
