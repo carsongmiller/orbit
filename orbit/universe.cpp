@@ -42,20 +42,15 @@ void Universe::update()
 		{
 			for (int b = 0; b < NUM_STAR; b++)
 			{
-				for (int c = 0; c < NUM_GALAXY; c++)
+				for (int x = b + 1; x < NUM_STAR; x++) //updating the remaining stars in galaxy "b"
+					galaxy[a].star[b].updateBoth(galaxy[a].star[x]);
+
+				for (int c = a+1; c < NUM_GALAXY; c++)
 				{
 					for (int d = 0; d < NUM_STAR; d++)
 					{
 						if (a != c || b != d)
-						{
-							galaxy[a].star[b].update
-								(
-									galaxy[c].star[d].xLast,
-									galaxy[c].star[d].yLast,
-									galaxy[c].star[d].zLast,
-									galaxy[c].star[d].mass
-									);
-						}
+							galaxy[a].star[b].updateBoth(galaxy[c].star[d]);
 					}
 				}
 			}
@@ -73,11 +68,11 @@ void Universe::update()
 				{
 					galaxy[a].update
 						(
-							galaxy[c].star[d].xLast,
-							galaxy[c].star[d].yLast,
-							galaxy[c].star[d].zLast,
+							galaxy[c].star[d].last[0],
+							galaxy[c].star[d].last[1],
+							galaxy[c].star[d].last[2],
 							galaxy[c].star[d].mass
-							);
+						);
 				}
 			}
 		}
@@ -94,11 +89,11 @@ void Universe::update()
 				{
 					galaxy[a].star[b].update
 						(
-							galaxy[c].xLast,
-							galaxy[c].yLast,
-							galaxy[c].zLast,
+							galaxy[c].last[0],
+							galaxy[c].last[1],
+							galaxy[c].last[2],
 							galaxy[c].mass
-							);
+						);
 				}
 			}
 		}
@@ -111,17 +106,11 @@ void Universe::update()
 	{
 		for (int a = 0; a < NUM_GALAXY; a++)
 		{
-			for (int c = 0; c < NUM_GALAXY; c++)
+			for (int c = a+1; c < NUM_GALAXY; c++)
 			{
 				if (a != c)
 				{
-					galaxy[a].update
-						(
-							galaxy[c].xLast,
-							galaxy[c].yLast,
-							galaxy[c].zLast,
-							galaxy[c].mass
-							);
+					galaxy[a].updateBoth(galaxy[c]);
 				}
 			}
 		}

@@ -6,12 +6,18 @@ class Galaxy
 {
 	friend class Universe;
 private:
-	double xPos, yPos, zPos;
-	double xLast, yLast, zLast;
-	double xDisplay_L, yDisplay_L, zDisplay_L; //coordinates for 3d display (left eye)
-	double xDisplay_R, yDisplay_R, zDisplay_R; //coordinates for 3d display (right eye)
-	double xSpeed, ySpeed, zSpeed;
-	double xOld[G_TRAIL_LENGTH], yOld[G_TRAIL_LENGTH], zOld[G_TRAIL_LENGTH];
+	//double xPos, yPos, zPos;
+	std::vector<double> p = std::vector<double>(3);
+	//double xLast, yLast, zLast;
+	std::vector<double> last = std::vector<double>(3);
+	//double xDisplay_L, yDisplay_L, zDisplay_L; //coordinates for 3d display (left eye)
+	std::vector<double> displayL = std::vector<double>(3);
+	//double xDisplay_R, yDisplay_R, zDisplay_R; //coordinates for 3d display (right eye)
+	std::vector<double> displayR = std::vector<double>(3);
+	//double xSpeed, ySpeed, zSpeed;
+	std::vector<double> speed = std::vector<double>(3);
+	//double xOld[G_TRAIL_LENGTH], yOld[G_TRAIL_LENGTH], zOld[G_TRAIL_LENGTH];
+	double *xOld, *yOld, *zOld;
 	int buffPlace;
 	double mass;
 	int planeZ;
@@ -31,17 +37,18 @@ public:
 			);
 	void update(double otherX, double otherY, double otherZ, double otherMass);
 	void updateSelf();
+	void updateBoth(Galaxy other);
 	void updateLast()
 	{
-		xLast = xPos;
-		yLast = yPos;
-		zLast = zPos;
+		last[0] = p[0];
+		last[1] = p[1];
+		last[2] = p[2];
 	}
 	void display(HDC hdc, HWND hWnd);
 
-	double starX(int s) { return star[s].xPos; }
-	double starY(int s) { return star[s].yPos; }
-	double starZ(int s) { return star[s].zPos; }
+	double starX(int s) { return star[s].p[0]; }
+	double starY(int s) { return star[s].p[1]; }
+	double starZ(int s) { return star[s].p[2]; }
 	double starM(int s) { return star[s].mass; }
 	Star getStar(int index) { return star[index]; }
 	void movePlane(int d) { planeZ += d; }

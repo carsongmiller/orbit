@@ -1,6 +1,5 @@
 #ifndef STAR_
 #define STAR_
-#include <vector>
 
 class Galaxy;
 class Universe;
@@ -10,11 +9,16 @@ class Star
 	friend class Galaxy;
 	friend class Universe;
 private:
-	double xPos, yPos, zPos;
-	double xLast, yLast, zLast;
-	double xSpeed, ySpeed, zSpeed;
-	double xDisplay_L, yDisplay_L, zDisplay_L; //coordinates for 3d display (left eye)
-	double xDisplay_R, yDisplay_R, zDisplay_R; //coordinates for 3d display (right eye)
+	//double xPos, yPos, zPos;
+	std::vector<double> p = std::vector<double>(3);
+	//double xLast, yLast, zLast;
+	std::vector<double> last = std::vector<double>(3);
+	//double xSpeed, ySpeed, zSpeed;
+	std::vector<double> speed = std::vector<double>(3);
+	//double xDisplay_L, yDisplay_L, zDisplay_L; //coordinates for 3d display (left eye)
+	std::vector<double> displayL = std::vector<double>(3);
+	//double xDisplay_R, yDisplay_R, zDisplay_R; //coordinates for 3d display (right eye)
+	std::vector<double> displayR = std::vector<double>(3);
 	double mass;
 	//double xOld[S_TRAIL_LENGTH], yOld[S_TRAIL_LENGTH], zOld[S_TRAIL_LENGTH];
 	double *xOld, *yOld, *zOld;
@@ -42,17 +46,18 @@ public:
 		);
 
 	void update(double otherX, double otherY, double otherZ, double otherMass);
+	void updateBoth(Star other);
 	void updateLast()
 	{
-		xLast = xPos;
-		yLast = yPos;
-		zLast = zPos;
+		last[0] = p[0];
+		last[1] = p[1];
+		last[2] = p[2];
 	}
 	void display(HDC hdc, HWND hWnd);
 
-	double x() { return xPos; };
-	double y() { return yPos; };
-	double z() { return zPos; };
+	double x() { return p[0]; };
+	double y() { return p[1]; };
+	double z() { return p[2]; };
 	double m() { return mass; };
 	void movePlane(int d) { planeZ += d; }
 };
