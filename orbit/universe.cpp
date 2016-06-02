@@ -42,7 +42,7 @@ void Universe::update()
 		{
 			for (int b = 0; b < NUM_STAR; b++)
 			{
-				for (int x = b + 1; x < NUM_STAR; x++) //updating the remaining stars in galaxy "b"
+				for (int x = b + 1; x < NUM_STAR; x++) //updating the remaining stars in galaxy "a"
 					galaxy[a].star[b].updateBoth(galaxy[a].star[x]);
 
 				for (int c = a+1; c < NUM_GALAXY; c++)

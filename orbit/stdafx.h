@@ -6,7 +6,6 @@
 #pragma once
 
 #include "targetver.h"
-#include "util.h"
 
 /*
 ------------------------------
@@ -15,9 +14,9 @@ Display Variables
 */
 
 #define TIME_INT			.0001			//time interval over which to update object velocities
-#define G_TRAILS			true			//use galaxy trails
+#define G_TRAILS			false			//use galaxy trails
 #define S_TRAILS			false			//use star trails
-#define G_TRAIL_LENGTH		1000000			//length of galaxy trails
+#define G_TRAIL_LENGTH		1000			//length of galaxy trails
 #define S_TRAIL_LENGTH		1000			//length of star trails
 #define GALAXY_SIZE			20				//radius of galaxy center
 #define STAR_SIZE			5				//radius of stars
@@ -25,7 +24,7 @@ Display Variables
 #define USE_3D				false			//use 3D projection
 #define HATCH_3D			true			//use cross hatching with 3D display
 #define USE_Z_SCALING		true			//whether to change radius of star based on z-position
-#define	SPEED				15				//how long to wait between updates of display
+#define	SPEED				1000				//how long to wait between updates of display
 #define SPEED_INC			1				//how much to increment speed by when button presses (left/right arrow keys)
 #define Z_RENDER_BOUNDARY	600				//point along z-axis along which objects are no longer rendered
 
@@ -36,7 +35,7 @@ Initialization Variables
 */
 
 #define NUM_GALAXY			1				//number of galaxies per star
-#define NUM_STAR			100				//number of stars per galaxy
+#define NUM_STAR			10				//number of stars per galaxy
 #define GALAXY_MASS			10000000		//mass of galaxy center
 #define STAR_MASS			50				//mass of star (larger -> more distant orbit b/c more inertia)
 #define G_C					2				//gravitational constant (not working currently)

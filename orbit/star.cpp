@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "util.h"
 #include "star.h"
 #include <cmath>
 
@@ -223,7 +224,7 @@ void Star::update(double otherX, double otherY, double otherZ, double otherMass)
 
 
 
-void Star::updateBoth(Star other)
+void Star::updateBoth(Star &other)
 {
 	double g, gx, gy, gz, r;
 	r = sqrt(pow(last[0] - other.last[0], 2) + pow(last[1] - other.last[1], 2) + pow(last[2] - other.last[2], 2));

@@ -37,7 +37,7 @@ public:
 			);
 	void update(double otherX, double otherY, double otherZ, double otherMass);
 	void updateSelf();
-	void updateBoth(Galaxy other);
+	void updateBoth(Galaxy &other);
 	void updateLast()
 	{
 		last[0] = p[0];

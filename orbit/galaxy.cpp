@@ -130,7 +130,7 @@ void Galaxy::update(double otherX, double otherY, double otherZ, double otherMas
 
 //updates both the galaxy calling the function and the galaxy passed as an argument
 //eliminates the need to calculate forces between two galaxies twice
-void Galaxy::updateBoth(Galaxy other)
+void Galaxy::updateBoth(Galaxy &other)
 {
 	double g, gx, gy, gz, r;
 	r = sqrt(pow(last[0] - other.last[0], 2) + pow(last[1] - other.last[1], 2) + pow(last[2] - other.last[2], 2));

@@ -1,5 +1,6 @@
 #ifndef STAR_
 #define STAR_
+#include <vector>
 
 class Galaxy;
 class Universe;
@@ -46,7 +47,7 @@ public:
 		);
 
 	void update(double otherX, double otherY, double otherZ, double otherMass);
-	void updateBoth(Star other);
+	void updateBoth(Star &other);
 	void updateLast()
 	{
 		last[0] = p[0];

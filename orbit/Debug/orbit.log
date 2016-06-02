@@ -1,21 +1,21 @@
-﻿Build started 5/24/2016 3:52:45 PM.
+﻿Build started 5/26/2016 10:55:24 PM.
      1>Project "C:\Users\Carson\Documents\Carson\Programming\orbit\orbit\orbit.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\orbit.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
          stdafx.cpp
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\util.h(36): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\util.h(40): warning C4018: '<': signed/unsigned mismatch
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\orbit.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt galaxy.cpp orbit.cpp star.cpp universe.cpp
          universe.cpp
          star.cpp
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(336): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(343): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(356): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(361): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(370): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\util.h(35): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\util.h(39): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(337): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(344): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(357): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(362): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
      1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(371): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
      1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(372): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
      1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(373): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(374): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
          orbit.cpp
      1>c:\users\carson\documents\carson\programming\orbit\orbit\orbit.cpp(35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
      1>c:\users\carson\documents\carson\programming\orbit\orbit\orbit.cpp(192): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
@@ -36,11 +36,9 @@
          Debug\star.obj
          Debug\stdafx.obj
          Debug\universe.obj
-     1>stdafx.obj : error LNK2005: "double __cdecl deg_to_rad(double)" (?deg_to_rad@@YANN@Z) already defined in star.obj
-     1>stdafx.obj : error LNK2005: "double __cdecl randBound(double,double,bool)" (?randBound@@YANNN_N@Z) already defined in star.obj
-     1>C:\Users\Carson\Documents\Carson\Programming\orbit\Debug\orbit.exe : fatal error LNK1169: one or more multiply defined symbols found
-     1>Done Building Project "C:\Users\Carson\Documents\Carson\Programming\orbit\orbit\orbit.vcxproj" (Build target(s)) -- FAILED.
+         orbit.vcxproj -> C:\Users\Carson\Documents\Carson\Programming\orbit\Debug\orbit.exe
+     1>Done Building Project "C:\Users\Carson\Documents\Carson\Programming\orbit\orbit\orbit.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:03.86
+Time Elapsed 00:00:05.61
