@@ -1,9 +1,8 @@
 #include "stdafx.h"
-#include "util.h"
 #include "star.h"
 #include <cmath>
+#include "util.h"
 
-double randBound(double low, double high, bool neg);
 
 Star::Star()
 {
@@ -330,17 +329,17 @@ void Star::display(HDC hdc, HWND hWnd)
 
 			SelectObject(hdc, blue);
 			Ellipse(hdc,
-				displayL[0] - STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
-				displayL[1] - STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
-				displayL[0] + STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
-				displayL[1] + STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z)
+				displayL[0] - STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
+				displayL[1] - STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
+				displayL[0] + STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
+				displayL[1] + STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z)
 				);
 			SelectObject(hdc, red);
 			Ellipse(hdc,
-				displayR[0] - STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
-				displayR[1] - STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
-				displayR[0] + STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
-				displayR[1] + STAR_SIZE*pow(S_GROWTH_FACTOR, p[2] - planeZ + PLANE_Z)
+				displayR[0] - STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
+				displayR[1] - STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
+				displayR[0] + STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z),
+				displayR[1] + STAR_SIZE*pow(GROWTH_FACTOR, p[2] - planeZ + PLANE_Z)
 				);
 
 			DeleteObject(red);
@@ -350,10 +349,10 @@ void Star::display(HDC hdc, HWND hWnd)
 		{
 			SelectObject(hdc, brush);
 			Ellipse(hdc,
-				p[0] - STAR_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				p[1] - STAR_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				p[0] + STAR_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				p[1] + STAR_SIZE*pow(S_GROWTH_FACTOR, p[2])
+				p[0] - STAR_SIZE*pow(GROWTH_FACTOR, p[2]),
+				p[1] - STAR_SIZE*pow(GROWTH_FACTOR, p[2]),
+				p[0] + STAR_SIZE*pow(GROWTH_FACTOR, p[2]),
+				p[1] + STAR_SIZE*pow(GROWTH_FACTOR, p[2])
 				);
 		}
 		else

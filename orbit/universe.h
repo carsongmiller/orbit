@@ -4,6 +4,8 @@
 #include "galaxy.h"
 #include "star.h"
 
+class Camera;
+
 class Universe
 {
 private:
@@ -12,10 +14,11 @@ private:
 public:
 	Universe();
 	void update();
-	void display(HDC hdc, HWND hWnd);
+	void display(HDC hdc, HWND hWnd, Camera cam);
 	void speedUp() { speed += SPEED_INC; }
 	void speedDown() { speed -= SPEED_INC; }
 	Galaxy getGal(int index) { return galaxy[index]; }
 	double getSpeed() { return speed; }
+
 };
 #endif

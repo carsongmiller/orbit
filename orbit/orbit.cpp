@@ -6,6 +6,7 @@
 #include "star.h"
 #include "galaxy.h"
 #include "universe.h"
+#include "camera.h"
 #include <ctime>
 
 #define MAX_LOADSTRING 100
@@ -24,6 +25,7 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 Universe *univ = NULL;
 double *speed = NULL;
 HBITMAP buffer = NULL;
+Camera *cam = NULL;
 
 RECT *rect;
 
@@ -122,6 +124,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	}
 
 	univ = new Universe();
+	cam = new Camera();
 	speed = new double;
 	rect = new RECT;
 	*speed = SPEED;
@@ -159,16 +162,36 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		case IDM_ABOUT:
 			DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
 			break;
+
 		case IDM_SPEED_UP:
 			if (*speed - SPEED_INC > 0)
 				*speed -= SPEED_INC;
 			break;
+
 		case IDM_SLOW_DOWN:
 			*speed += SPEED_INC;
 			break;
+
+		case IDM_PAN_LEFT:
+			cam->pan -= 5;
+			break;
+
+		case IDM_PAN_RIGHT:
+			cam->pan += 5;
+			break;
+
+		case IDM_TILT_UP:
+			cam->tilt += 5;
+			break;
+
+		case IDM_TILT_DOWN:
+			cam->tilt -= 5;
+			break;
+
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
 			break;
+
 		default:
 			return DefWindowProc(hWnd, message, wParam, lParam);
 		}
@@ -187,7 +210,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		HBITMAP hbmBuffer = CreateCompatibleBitmap(hdc, rect->right, rect->bottom);
 		HBITMAP hbmOldBuffer = (HBITMAP)SelectObject(hdcBuffer, hbmBuffer);
 		univ->update();	//update all objects in univ
-		univ->display(hdcBuffer, hWnd); //write universe display to hbmBuffer
+		univ->display(hdcBuffer, hWnd, *cam); //write universe display to hbmBuffer
 		BitBlt(hdc, 0, 0, rect->right, rect->bottom, hdcBuffer, 0, 0, SRCCOPY); //display hdbBuffer on screen
 		Sleep(*speed);
 		DeleteObject(hbmBuffer);

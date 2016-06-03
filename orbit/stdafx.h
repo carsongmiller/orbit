@@ -20,13 +20,14 @@ Display Variables
 #define S_TRAIL_LENGTH		1000			//length of star trails
 #define GALAXY_SIZE			20				//radius of galaxy center
 #define STAR_SIZE			5				//radius of stars
-#define S_GROWTH_FACTOR		1.006			//scaling of z coordinate to star radius
+#define GROWTH_FACTOR		1.006			//scaling of z coordinate to star radius
 #define USE_3D				false			//use 3D projection
 #define HATCH_3D			true			//use cross hatching with 3D display
 #define USE_Z_SCALING		true			//whether to change radius of star based on z-position
-#define	SPEED				1000				//how long to wait between updates of display
+#define	SPEED				10				//how long to wait between updates of display
 #define SPEED_INC			1				//how much to increment speed by when button presses (left/right arrow keys)
 #define Z_RENDER_BOUNDARY	600				//point along z-axis along which objects are no longer rendered
+#define ENABLE_CAMERA		true
 
 /*
 ------------------------------
@@ -34,7 +35,7 @@ Initialization Variables
 ------------------------------
 */
 
-#define NUM_GALAXY			1				//number of galaxies per star
+#define NUM_GALAXY			2				//number of galaxies per star
 #define NUM_STAR			10				//number of stars per galaxy
 #define GALAXY_MASS			10000000		//mass of galaxy center
 #define STAR_MASS			50				//mass of star (larger -> more distant orbit b/c more inertia)
@@ -52,7 +53,7 @@ Gravitaional Interactions
 #define STAR_STAR_INTER		false			//include star->star interactions
 #define GAL_GAL_INTER		false			//include galaxy->galaxy interactions
 #define GAL_STAR_INTER		true			//include galaxy->star interactions
-#define STAR_GAL_INTER		true			//include star->galaxy interactions
+#define STAR_GAL_INTER		false			//include star->galaxy interactions
 
 /*
 ------------------------------
@@ -78,17 +79,17 @@ Galaxy Initial Positions
 */
 
 //Galaxy 1:
-#define G1_XPOS				300
-#define G1_YPOS				400
-#define G1_ZPOS				0
+#define G1_XPOS				500
+#define G1_YPOS				500
+#define G1_ZPOS				-200
 #define G1_XSPEED			0
 #define G1_YSPEED			0
 #define G1_ZSPEED			0
 
 //Galaxy 2:
-#define G2_XPOS				1000
-#define G2_YPOS				400
-#define G2_ZPOS				0
+#define G2_XPOS				900
+#define G2_YPOS				500
+#define G2_ZPOS				200
 #define G2_XSPEED			0
 #define G2_YSPEED			0
 #define G2_ZSPEED			0

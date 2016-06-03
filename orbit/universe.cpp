@@ -2,6 +2,9 @@
 #include "universe.h"
 #include "galaxy.h"
 #include "star.h" 
+#include "camera.h"
+#include "util.h"
+
 
 Universe::Universe()
 {
@@ -135,8 +138,114 @@ void Universe::update()
 
 
 
-void Universe::display(HDC hdc, HWND hWnd)
-{
-	for (int i = 0; i < NUM_GALAXY; i++)
-		galaxy[i].display(hdc, hWnd);
+void Universe::display(HDC hdc, HWND hWnd, Camera cam)
+{	
+	if (ENABLE_CAMERA)
+	{
+		cam.updateMats();
+		double pTemp[4];
+		double transform[4][4] = 
+		{ 
+			{1, 0, 0, 0},
+			{0, 1, 0, 0},
+			{0, 0, 1, 0},
+			{0, 0, 0, 1}
+		};
+
+		matrixMult4x4(transform, cam.rollMat, transform);
+		matrixMult4x4(transform, cam.tiltMat, transform);
+		matrixMult4x4(transform, cam.panMat, transform);
+		matrixMult4x4(transform, cam.translateMat, transform);
+
+		invertMatrix4x4(transform, transform);
+
+		RECT *r = new RECT;
+		GetClientRect(hWnd, r);
+		double perspective[4][4] = 
+		{
+			{(1/r->right),		0,					0,					0},
+			{0,					(1 / r->bottom),	0,					0},
+			{0,					0,					-2/(-1000 - 1000),	-1*(-1000+1000)/(-1000-1000)},
+			{0,					0,					0,					1}
+		};
+
+		/*
+			{1/width,			0,					0,					0},
+			{0,					1/height,			0,					0},
+			{0,					0,					-2/(zFar - zNear),	-1*(zFar + zNear)/(zFar + zNear)},
+			{0,					0,					0,					1}
+		*/
+
+		matrixMult4x4(perspective, transform, transform);
+		
+		double plot[4];
+		for (int g = 0; g < NUM_GALAXY; g++)
+		{
+			SelectObject(hdc, galaxy[g].brush);
+			plot[0] = galaxy[g].p.at(0);
+			plot[1] = galaxy[g].p.at(1);
+			plot[2] = galaxy[g].p.at(2);
+			plot[3] = 1;
+
+			matrixMult4x1(transform, plot, plot);
+
+			plot[0] /= plot[3];
+			plot[1] /= plot[3];
+			plot[2] /= plot[3];
+			plot[3] /= plot[3];
+
+			double r =
+				sqrt(
+					pow(galaxy[g].p.at(0) - cam.p.at(0), 2) +
+					pow(galaxy[g].p.at(1) - cam.p.at(1), 2) +
+					pow(galaxy[g].p.at(2) - cam.p.at(2), 2)
+					);
+			if (plot[0] + GALAXY_SIZE*pow(GROWTH_FACTOR, plot[2]) - plot[0] - GALAXY_SIZE*pow(GROWTH_FACTOR, plot[2]) < 1000)
+			{
+				Ellipse(hdc,
+					plot[0] - GALAXY_SIZE*pow(GROWTH_FACTOR, plot[2]),
+					plot[1] - GALAXY_SIZE*pow(GROWTH_FACTOR, plot[2]),
+					plot[0] + GALAXY_SIZE*pow(GROWTH_FACTOR, plot[2]),
+					plot[1] + GALAXY_SIZE*pow(GROWTH_FACTOR, plot[2])
+					);
+			}
+
+			for (int s = 0; s < NUM_STAR; s++)
+			{
+				plot[0] = galaxy[g].star[s].p.at(0);
+				plot[1] = galaxy[g].star[s].p.at(1);
+				plot[2] = galaxy[g].star[s].p.at(2);
+				plot[3] = 1;
+
+				matrixMult4x1(transform, plot, plot);
+
+				plot[0] /= plot[3];
+				plot[1] /= plot[3];
+				plot[2] /= plot[3];
+				plot[3] /= plot[3];
+
+				double r =
+					sqrt(
+						pow(galaxy[g].star[s].p.at(0) - cam.p.at(0), 2) +
+						pow(galaxy[g].star[s].p.at(1) - cam.p.at(1), 2) +
+						pow(galaxy[g].star[s].p.at(2) - cam.p.at(2), 2)
+						);
+
+				if (plot[0] + STAR_SIZE*pow(GROWTH_FACTOR, plot[2]) - plot[0] - STAR_SIZE*pow(GROWTH_FACTOR, plot[2]) < 1000)
+				{
+					Ellipse(hdc,
+						plot[0] - STAR_SIZE*pow(GROWTH_FACTOR, plot[2]),
+						plot[1] - STAR_SIZE*pow(GROWTH_FACTOR, plot[2]),
+						plot[0] + STAR_SIZE*pow(GROWTH_FACTOR, plot[2]),
+						plot[1] + STAR_SIZE*pow(GROWTH_FACTOR, plot[2])
+						);
+				}
+			}
+		}
+	}
+	else
+	{
+		for (int i = 0; i < NUM_GALAXY; i++)
+			galaxy[i].display(hdc, hWnd);
+	}
 }

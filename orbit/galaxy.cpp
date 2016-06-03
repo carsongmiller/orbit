@@ -3,6 +3,7 @@
 #include "star.h"
 #include <cmath>
 
+
 Galaxy::Galaxy()
 {
 	p[0] = rand() % 400;
@@ -275,17 +276,17 @@ void Galaxy::display(HDC hdc, HWND hWnd)
 
 			SelectObject(hdc, blue);
 			Ellipse(hdc,
-				displayL[0] - GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				displayL[1] - GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				displayL[0] + GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				displayL[1] + GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2])
+				displayL[0] - GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				displayL[1] - GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				displayL[0] + GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				displayL[1] + GALAXY_SIZE*pow(GROWTH_FACTOR, p[2])
 				);
 			SelectObject(hdc, red);
 			Ellipse(hdc,
-				displayR[0] - GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				displayR[1] - GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				displayR[0] + GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				displayR[1] + GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2])
+				displayR[0] - GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				displayR[1] - GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				displayR[0] + GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				displayR[1] + GALAXY_SIZE*pow(GROWTH_FACTOR, p[2])
 				);
 
 			DeleteObject(red);
@@ -296,10 +297,10 @@ void Galaxy::display(HDC hdc, HWND hWnd)
 		{
 			SelectObject(hdc, brush);
 			Ellipse(hdc,
-				p[0] - GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				p[1] - GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				p[0] + GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2]),
-				p[1] + GALAXY_SIZE*pow(S_GROWTH_FACTOR, p[2])
+				p[0] - GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				p[1] - GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				p[0] + GALAXY_SIZE*pow(GROWTH_FACTOR, p[2]),
+				p[1] + GALAXY_SIZE*pow(GROWTH_FACTOR, p[2])
 				);
 		}
 		else
