@@ -173,19 +173,43 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
 
 		case IDM_PAN_LEFT:
-			cam->pan -= 5;
+			cam->pan -= PAN_INC;
 			break;
 
 		case IDM_PAN_RIGHT:
-			cam->pan += 5;
+			cam->pan += PAN_INC;
 			break;
 
 		case IDM_TILT_UP:
-			cam->tilt += 5;
+			cam->tilt += TILT_INC;
 			break;
 
 		case IDM_TILT_DOWN:
-			cam->tilt -= 5;
+			cam->tilt -= TILT_INC;
+			break;
+
+		case IDM_MOVE_FORWARD:
+			cam->p.at(2) -= TRANSLATE_INC;
+			break;
+
+		case IDM_MOVE_BACKWARD:
+			cam->p.at(2) += TRANSLATE_INC;
+			break;
+
+		case IDM_MOVE_LEFT:
+			cam->p.at(0) -= TRANSLATE_INC;
+			break;
+
+		case IDM_MOVE_RIGHT:
+			cam->p.at(0) += TRANSLATE_INC;
+			break;
+
+		case IDM_MOVE_UP:
+			cam->p.at(1) += TRANSLATE_INC;
+			break;
+
+		case IDM_MOVE_DOWN:
+			cam->p.at(1) -= TRANSLATE_INC;
 			break;
 
 		case IDM_EXIT:

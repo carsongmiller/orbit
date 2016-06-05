@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include <vector>
+#include "star.h"
+#include "galaxy.h"
 
 #define PI 3.14159265359
 
@@ -221,4 +223,38 @@ bool invertMatrix4x4(double m[4][4], double inverse[4][4])
 	}
 
 	return true;
+}
+
+
+
+bool shouldRender(Star s)
+{
+	if (
+		s.p.at(0) >= -RENDER_BOUNDARY &&
+		s.p.at(0) <= RENDER_BOUNDARY &&
+		s.p.at(1) >= -RENDER_BOUNDARY &&
+		s.p.at(1) <= RENDER_BOUNDARY &&
+		s.p.at(2) >= -RENDER_BOUNDARY &&
+		s.p.at(2) <= RENDER_BOUNDARY
+		)
+		return true;
+	else
+		return false;
+}
+
+
+
+bool shouldRender(Galaxy g)
+{
+	if (
+		g.p.at(0) >= -RENDER_BOUNDARY &&
+		g.p.at(0) <= RENDER_BOUNDARY &&
+		g.p.at(1) >= -RENDER_BOUNDARY &&
+		g.p.at(1) <= RENDER_BOUNDARY &&
+		g.p.at(2) >= -RENDER_BOUNDARY &&
+		g.p.at(2) <= RENDER_BOUNDARY
+		)
+		return true;
+	else
+		return false;
 }

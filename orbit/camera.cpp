@@ -5,9 +5,9 @@
 
 Camera::Camera()
 {
-	p[0] = 0;
-	p[1] = 0;
-	p[2] = 1000;
+	p[0] = CAMERA_X;
+	p[1] = CAMERA_Y;
+	p[2] = CAMERA_Z;
 	pan = 0;
 	tilt = 0;
 	roll = 0;

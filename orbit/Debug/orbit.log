@@ -1,12 +1,43 @@
-﻿Build started 6/3/2016 3:23:34 PM.
+﻿Build started 6/5/2016 12:03:55 AM.
      1>Project "C:\Users\Carson\Documents\Carson\Programming\orbit\orbit\orbit.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IC:\Users\Carson\Documents\Carson\Programming\orbit\orbit /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\orbit.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt universe.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IC:\Users\Carson\Documents\Carson\Programming\orbit\orbit /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\orbit.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IC:\Users\Carson\Documents\Carson\Programming\orbit\orbit /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\orbit.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt camera.cpp galaxy.cpp orbit.cpp star.cpp universe.cpp util.cpp
+         util.cpp
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\util.cpp(38): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\util.cpp(42): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\util.cpp(98): warning C4101: 'i': unreferenced local variable
          universe.cpp
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(170): warning C4838: conversion from 'LONG' to 'double' requires a narrowing conversion
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(210): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(241): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(146): warning C4101: 'pTemp': unreferenced local variable
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(202): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(218): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(253): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(264): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(326): warning C4838: conversion from 'LONG' to 'double' requires a narrowing conversion
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\universe.cpp(306): warning C4101: 'pTemp': unreferenced local variable
+         star.cpp
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(336): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(343): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(356): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(361): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(370): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(371): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(372): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\star.cpp(373): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+         orbit.cpp
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\orbit.cpp(37): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\orbit.cpp(239): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+         galaxy.cpp
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(283): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(290): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(304): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(309): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(319): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(320): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(321): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+     1>c:\users\carson\documents\carson\programming\orbit\orbit\galaxy.cpp(322): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+         camera.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Carson\Documents\Carson\Programming\orbit\Debug\orbit.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Carson\Documents\Carson\Programming\orbit\Debug\orbit.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Carson\Documents\Carson\Programming\orbit\Debug\orbit.lib" /MACHINE:X86 Debug\orbit.res
          Debug\camera.obj
@@ -21,4 +52,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.77
+Time Elapsed 00:00:11.73
